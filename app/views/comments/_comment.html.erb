@@ -1,0 +1,31 @@
+<% nesting     = local_assigns.fetch(:nesting, 1) %>
+<% max_nesting = local_assigns[:max_nesting] %>
+<div class="container mx-auto border-l-2 ml-4 pl-4 mt-4 pb-4">
+    <% if comment.deleted? %>
+        <small> <%= comment.user.username %> <%= time_ago_in_words(comment.created_at)%> ago </small> 
+        <p> [deleted] </p> 
+    <% else %>
+        <small>
+            <p><%= comment.user.username %> <%= time_ago_in_words(comment.created_at)%> ago </p> 
+        </small>
+        <%= simple_format comment.body %>
+    <% end %>
+
+    <div data-controller="reply"> 
+        <small>
+            <%= link_to "reply", "#", data: { action: "click->reply#toggle"} %>
+            <%= link_to "delete", [comment.commentable, comment], method: :delete, data: { confirm: "Are you sure?" } if comment.user == current_user %>
+        </small>        
+      
+        <%= render partial: "comments/form", locals: { 
+            commentable: comment.commentable,
+            parent_id: reply_to_comment_id(comment, nesting, max_nesting),
+            class: "hidden pt-4",
+            target: "reply.form" 
+        } %>
+    </div>
+    
+    <%= tag.div id: "#{dom_id(comment)}_comments" do %>
+        <%= render comment.comments, nesting: nesting + 1, max_nesting: local_assigns[:max_nesting] %>
+    <% end %>
+</div>

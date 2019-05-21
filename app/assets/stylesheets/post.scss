@@ -1,0 +1,15 @@
+// Place all the styles related to the Post controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.upvote {
+    display: inline-block;
+    vertical-align: middle;
+    border-bottom: solid 7px #48bb78;
+    border-left: solid 5px transparent;
+    border-right: solid 5px transparent;
+}
+
+label textarea {
+  vertical-align: middle;
+}

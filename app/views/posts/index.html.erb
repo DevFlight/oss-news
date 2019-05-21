@@ -1,0 +1,37 @@
+<div class="flex flex-col bg-blue-100 mx-auto sm:mx-32 pl-8">
+  <ol class="list-decimal pt-2" start= <%= get_page_start(params[:page]) %>>
+    <% @posts.each do |post| %>
+      <div class="ml-4">
+         <li>
+          <div>
+            <% if user_signed_in? && !current_user.voted_for?(post) %>
+              <%= link_to "", post_like_path(post), method: :post, class: "upvote float-left mt-2" %>
+            <% elsif !user_signed_in? %>
+              <%= link_to "", new_user_session_path, method: :post, class: "upvote float-left mt-2" %>
+            <% end %>
+            <h4 class="pl-4">
+              <% if post.link.present? %>
+                <%= link_to post.title, post.link, target: "_blank" %> 
+                (<%= link_to clean_url(post.link), post.link, target: "_blank" %>) 
+              <% else %>
+                <%= link_to post.title, post %> 
+              <% end %>
+            </h4>
+            <small>
+              <p class="pl-4 mb-2">
+                <%= (display_points_count(post)) %>
+                by <%= get_username(post.user_id).username %> 
+                <%= time_ago_in_words(post.created_at) %> ago | 
+                <%= link_to display_comment_count(post), post_path(post) %>
+              </p>
+            </small>
+          </div>
+        </li>
+      </div>
+    <% end %>
+  </ol>
+  <div class="flex mt-2 pb-4 pl-8">
+    <%= paginate @posts %>
+  </div>
+</div>
+<%= render "shared/footer" %>

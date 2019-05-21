@@ -1,0 +1,7 @@
+document.addEventListener('turbolinks:load', function(event) {
+  if (typeof gtag === 'function') {
+    gtag('config', '<%= Rails.application.credentials.dig(:ga_tag) %>', {
+      'page_location': event.data.url
+    })
+  }
+})

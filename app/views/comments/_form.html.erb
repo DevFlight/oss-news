@@ -1,0 +1,10 @@
+<%= form_with model: [commentable, Comment.new], html: { class: local_assigns[:class], data: { target: local_assigns[:target] } } do |f| %>
+    <div class="pl-4">
+        <%= f.text_area :body, size: "40x4" %>
+    </div>
+
+    <div class="container mx-auto mt-4 pb-4 pl-4">
+        <%= f.hidden_field :parent_id, value: local_assigns[:parent_id]%>
+        <%= f.submit "add comment", class: "bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded" %>
+    </div>
+<% end %>

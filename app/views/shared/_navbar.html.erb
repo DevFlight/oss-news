@@ -1,0 +1,22 @@
+<div class="flex justify-between bg-green-500 mx-0 sm:mx-32 px-8 py-1 sm:mt-2">
+  <div class="inline-block">
+    <strong><%= link_to "OS News", posts_path, class: "pr-2" %></strong> 
+    <%= link_to "top", posts_path %> |
+    <%= link_to "new", posts_path(q: "newest") %> |
+    <%= link_to "contribute", new_post_path %> |
+    <%= link_to "search", new_post_path %> |
+    <%= link_to "submit", new_post_path %>
+  </div>
+  <div class="inline-block">
+    <% if user_signed_in? %>
+        <%= link_to current_user.username, edit_user_registration_path %> |
+        <% if user_signed_in? && current_user.admin? %>
+          <%= link_to "admin", admin_root_path %> | 
+        <% end %>
+        <%= link_to "logout", destroy_user_session_path, :method => :delete  %>
+    <% else %>
+      <%= link_to "login", new_user_session_path %>
+    <% end %>
+    
+  </div>
+</div>
