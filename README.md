@@ -1,4 +1,4 @@
-# os-news
+# oss-news
 A forum for discussing all things open-source.
 
 ## Contributing
