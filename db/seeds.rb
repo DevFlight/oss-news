@@ -55,7 +55,7 @@ def create_comments_data
 end
 
 def create_mock_data
-    puts "Creating OS News mock data..."
+    puts "Creating OSS News mock data..."
     create_mock_users
     create_mock_posts
     create_likes_data
