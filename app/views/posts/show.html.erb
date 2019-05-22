@@ -8,8 +8,8 @@
       <% end %>
       <h4 class="pl-4">
         <% if @post.link.present? %>
-          <%= link_to @post.title, @post.link, target: "_blank" %> 
-          (<%= link_to clean_url(@post.link), @post.link, target: "_blank" %>) 
+          <%= link_to @post.title, @post.link %> 
+          (<%= link_to clean_url(@post.link), @post.link %>) 
         <% else %>
           <%= link_to @post.title, @post %> 
         <% end %>
