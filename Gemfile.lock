@@ -162,7 +162,7 @@ GEM
       equatable (~> 0.5.0)
       tty-color (~> 0.4.0)
     pg (1.1.4)
-    puma (3.12.1)
+    puma (3.12.4)
     rack (2.0.7)
     rack-proxy (0.6.5)
       rack
@@ -284,7 +284,7 @@ DEPENDENCIES
   kaminari (~> 1.1)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (~> 5.2.3)
   sass-rails (~> 5.0)
   spring
