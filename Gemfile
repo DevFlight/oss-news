@@ -49,7 +49,7 @@ gem 'kaminari', '~> 1.1'
 gem 'acts_as_votable', '~> 0.12'
 
 # Use administrate for admin dashboard
-gem 'administrate', '~> 0.11'
+gem 'administrate', '~> 0.13'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
