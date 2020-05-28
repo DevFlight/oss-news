@@ -43,7 +43,7 @@ gem 'devise'
 gem 'webpacker', '~> 4.0'
 
 # Use Kaminari for pagination
-gem 'kaminari', '~> 1.1'
+gem 'kaminari', '~> 1.2'
 
 # Use acts_as_votable for user upvotes 
 gem 'acts_as_votable', '~> 0.12'
